@@ -1,0 +1,66 @@
+/* Reset some default styles for the body and header */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-image: url(images/div1.jpg); /* Background color for the header */
+    background-size: aouto;
+    color: #fff; /* Text color for the header */
+    padding: 10px 20px;
+    display: flex; /* Make header a flex container */
+    justify-content: space-between; /* Space between div1 and div2 */
+}
+
+/* Container for div1 */
+.header-div1 {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Pushes div1 to the left */
+    font-size: 30px;
+}
+
+/* Container for div2 */
+.header-div2 {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent text from wrapping */
+    align-items: center;
+    justify-content: flex-end; /* Align div2 to the right */
+    font-size: 20px;
+}
+
+/* Style for the logo */
+.logo img {
+    width: 100px; /* Set your logo's width */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Add some spacing between logo and links */
+}
+
+/* Style the main navigation links (Blogs, Library, Portfolio) */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arrange links horizontally */
+    margin-right: auto; /* Pushes the main links to the right */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+/* Style the links in the header */
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Style the header-div2 links */
+.header-div2 nav ul li {
+    margin-right: 10px; /* Adjust spacing between links */
+}
+
+/* Add styles for selected and hover states if needed */
