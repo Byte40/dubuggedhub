@@ -5,30 +5,27 @@ body, h1, h2, p {
 }
 
 header {
-    background-image: url(images/div1.jpg); /* Background color for the header */
-    background-size: aouto;
+    background-image: url(images/div1.jpg); /* Background image for div1 */
+    background-size: auto;
     color: #fff; /* Text color for the header */
     padding: 10px 20px;
     display: flex; /* Make header a flex container */
     justify-content: space-between; /* Space between div1 and div2 */
 }
 
+/* Container for div1 and div2 */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Space div1 and div2 */
+    align-items: center; /* Center the content vertically */
+    font-size: 30px;
+}
+
 /* Container for div1 */
 .header-div1 {
     display: flex;
     align-items: center;
-    margin-right: auto; /* Pushes div1 to the left */
-    font-size: 30px;
-}
-
-/* Container for div2 */
-.header-div2 {
-    display: flex;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    white-space: nowrap; /* Prevent text from wrapping */
-    align-items: center;
-    justify-content: flex-end; /* Align div2 to the right */
-    font-size: 20px;
+    font-size: 30px; /* Reduce the font size for better fit */
 }
 
 /* Style for the logo */
@@ -42,25 +39,40 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
     display: flex; /* Arrange links horizontally */
-    margin-right: auto; /* Pushes the main links to the right */
+    margin-right: auto;
 }
 
+/* Style the links in the header (Blogs, Library, Portfolio) */
 nav ul li {
     margin-right: 20px;
 }
 
-/* Style the links in the header */
-nav ul li a {
-    text-decoration: none;
+/* Keep the color white for Blogs and Library */
+nav ul li:nth-child(1) a,
+nav ul li:nth-child(2) a {
     color: #fff;
-    font-weight: bold;
 }
 
-/* Style the header-div2 links */
-.header-div2 nav ul li {
-    margin-right: 10px; /* Adjust spacing between links */
+/* Shift Portfolio to the left and change its color to white */
+nav ul li:nth-child(3) a {
+    margin-left: right; /* Pushes Portfolio to the left */
+    color: #fff; /* Change color to white */
 }
 
-/* Add styles for selected and hover states if needed */
+/* Style the links in div2 (login) */
+.header-div2 ul li {
+    margin-left: 20px;
+    color: #fff; /* Change color to white */
+}
+
+main .navigation-bar {
+    background: #0a0a0a; /* Grey background for navigation-bar */
+    height: 50px;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+
+}
+
