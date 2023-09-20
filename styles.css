@@ -28,6 +28,16 @@ header {
     font-size: 30px; /* Reduce the font size for better fit */
 }
 
+.header-div2-container {
+    background-color: #333; /* Background color for div2 */
+}
+
+.header-div2 {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    margin-right:auto;
+}
 /* Style for the logo */
 .logo img {
     width: 100px; /* Set your logo's width */
@@ -35,15 +45,15 @@ header {
     margin-right: 20px; /* Add some spacing between logo and links */
 }
 
-/* Style the main navigation links (Blogs, Library, Portfolio) */
+/* Style the main navigation links (Blogs, Library) */
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex; /* Arrange links horizontally */
-    margin-right: auto;
 }
 
-/* Style the links in the header (Blogs, Library, Portfolio) */
+/* Style the links in the header (Blogs, Library) */
 nav ul li {
     margin-right: 20px;
 }
@@ -52,18 +62,25 @@ nav ul li {
 nav ul li:nth-child(1) a,
 nav ul li:nth-child(2) a {
     color: #fff;
+    text-decoration: none; /* Remove underlines */
 }
 
-/* Shift Portfolio to the left and change its color to white */
-nav ul li:nth-child(3) a {
-    margin-left: right; /* Pushes Portfolio to the left */
-    color: #fff; /* Change color to white */
+/* Style div2 (Portfolio, Login) */
+.header-div2 ul {
+    display: flex; /* Arrange links horizontally */
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-/* Style the links in div2 (login) */
 .header-div2 ul li {
     margin-left: 20px;
-    color: #fff; /* Change color to white */
+}
+
+/* Change the color to white for Portfolio and Login */
+.header-div2 ul li a {
+    color: #fff;
+    text-decoration: none; /* Remove underlines */
 }
 
 main .navigation-bar {
@@ -72,7 +89,11 @@ main .navigation-bar {
     font-size: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 20px;
-
 }
 
+
+/* Change link color and add a slight zoom effect on hover */
+.main .navigation-bar ul li a:hover {
+    color: #b30707; /* Change link color on hover */
+    transform: scale(1.1);
+}
