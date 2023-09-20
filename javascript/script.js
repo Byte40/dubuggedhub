@@ -30,3 +30,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Get references to the search input and button
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+
+    // Function to perform the search
+    function performSearch() {
+        const query = searchInput.value.trim(); // Get the trimmed query
+
+        // Perform your search logic here
+        // You can redirect to a search results page or display results on the same page
+
+        // For demonstration purposes, let's alert the query
+        alert(`Searching for: ${query}`);
+    }
+
+    // Attach the search function to the button click event
+    searchButton.addEventListener("click", performSearch);
+
+    // Attach the search function to the Enter key press in the input field
+    searchInput.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+            performSearch();
+        }
+    });
+});
+
+
+
+
