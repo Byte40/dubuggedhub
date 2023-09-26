@@ -1,18 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const prevButton = document.querySelector(".prev-button");
-    const nextButton = document.querySelector(".next-button");
-    const nav = document.querySelector(".navigation-bar nav");
-    const ul = document.querySelector(".navigation-bar ul");
+import { createRoot } from 'react-dom/client';
 
-    let scrollPosition = 0;
+// Clear the existing HTML content
+document.body.innerHTML = '<div id="app"></div>';
+
+// Render your React component instead
+const root = createRoot(document.getElementById('app'));
+root.render(<h1>Hello, world</h1>);
+
+
+
+// Function to handle scrolling
+function handleScrolling() {
+    const prevButton = document.querySelector(".prev-button"); // Get prev button
+    const nextButton = document.querySelector(".next-button"); // Get next button
+    const nav = document.querySelector(".navigation-bar nav"); // Get nav element
+    const ul = document.querySelector(".navigation-bar ul"); // Get ul element
+
+    let scrollPosition = 0; // Initialize scroll position
 
     // Function to scroll to the left
     prevButton.addEventListener("click", function () {
-        scrollPosition -= 200; // Adjust the scrolling distance as needed
+        scrollPosition -= 200; // Adjust scrolling distance
         if (scrollPosition < 0) {
-            scrollPosition = 0;
+            scrollPosition = 0; // Set minimum scroll position
         }
-        nav.scrollTo({
+        nav.scrollTo({ // Scroll to the left
             left: scrollPosition,
             behavior: "smooth",
         });
@@ -20,16 +32,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to scroll to the right
     nextButton.addEventListener("click", function () {
-        scrollPosition += 200; // Adjust the scrolling distance as needed
+        scrollPosition += 200; // Adjust scrolling distance
         if (scrollPosition > ul.offsetWidth - nav.offsetWidth) {
-            scrollPosition = ul.offsetWidth - nav.offsetWidth;
+            scrollPosition = ul.offsetWidth - nav.offsetWidth; // Set maximum scroll position
         }
-        nav.scrollTo({
+        nav.scrollTo({ // Scroll to the right
             left: scrollPosition,
             behavior: "smooth",
         });
     });
-});
+}
+
+// Call the function
+handleScrolling();
 
 
 document.addEventListener("DOMContentLoaded", function () {
