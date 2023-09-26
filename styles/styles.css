@@ -2,6 +2,7 @@
 body, h1, h2, p {
     margin: 0;
     padding: 0;
+    background-color: #212529;
 }
 
 /* Header styles */
@@ -64,6 +65,11 @@ nav ul {
 /* Add hover effect to links */
 .header-container ul li a:hover {
     transform: scale(1.1); /* Magnify the link on hover */
+}
+
+main {
+    background: #212529;
+    color:#ffffff;
 }
 
 main .navigation-bar {
@@ -148,6 +154,36 @@ main .navigation-bar {
 }
 
 
+footer{
+    background:#0469bb ;
+    padding : 1em .5em;
+    text-align:center;
+    font-size:.9rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style:italic;
+}
 
+/* Target the <ul> element within the footer */
+footer ul {
+    list-style: none; /* Remove default list bullets */
+    padding: 0; /* Remove default padding */
+}
+
+/* Target the <li> elements within the footer */
+footer li {
+    margin-bottom: 10px; /* Add space between list items */
+}
+
+/* Target the <a> elements within the footer */
+footer a {
+    text-decoration: none; /* Remove underlines from links */
+    color: #414241; /* Set text color for links */
+    transition: color 0.3s; /* Add a smooth color transition on hover */
+}
+
+/* Change link color on hover */
+footer a:hover {
+    color: #FFD700; /* Change to a different color on hover (e.g., gold) */
+}
 
 

@@ -1,0 +1,183 @@
+// Reset some default styles for the body and header
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    background-color: #212529;
+}
+
+// Header styles
+header {
+    background-image: url(images/div1.jpg); // Background image for div1
+    background-size: auto;
+    color: #fff; // Text color for the header
+    padding: 10px 20px;
+    display: flex; // Make header a flex container
+    justify-content: space-between; // Space between div1 and div2
+
+    // Container for div1 and div2
+    .header-container {
+        display: flex;
+        justify-content: flex-end; // Space div1 and div2
+        align-items: center; // Center the content vertically
+        font-size: 30px;
+        padding: 0 20px; // Add padding to separate the divs from the edges
+        font-weight: 400px;
+
+        // Container for div1
+        .header-div1 {
+            display: flex;
+            align-items: center;
+            font-size: 30px; // Reduce the font size for better fit
+        }
+
+        .header-div2 {
+            font-size: 30px;
+        }
+
+        ul li a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+
+            // Add hover effect to magnify links
+            transition: transform 0.2s;
+        }
+    }
+}
+
+// Style for the logo
+.logo img {
+    width: 100px; // Set your logo's width
+    height: auto; // Maintain aspect ratio
+    margin-right: 20px; // Add some spacing between logo and links
+}
+
+// Style the main navigation links (Blogs, Library)
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; // Arrange links horizontally
+
+    // Add hover effect to links
+    .header-container ul li a:hover {
+        transform: scale(1.1); // Magnify the link on hover
+    }
+}
+
+main {
+    background: #212529;
+    color: #ffffff;
+
+    .navigation-bar {
+        background: #282634; // Grey background for navigation-bar
+        height: 70px;
+        font-size: 20px;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+
+        .links-container {
+            display: flex;
+            overflow: hidden; // Hide overflowing content
+
+            // Style the scroll buttons
+            .scroll-button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 24px;
+                color: #fff;
+            }
+
+            .prev-button {
+                margin-right: 10px;
+            }
+
+            .next-button {
+                margin-left: 10px;
+            }
+
+            // Style the links in the navigation-bar
+            ul li a {
+                text-decoration: none; // Remove underlines
+                color: #fff; // Text color for links
+                font-weight: bold; // Bold text
+                padding: 5px 10px; // Add some padding to the links
+                border-radius: 5px; // Add rounded corners to the links
+                margin-right: 5px;
+                margin-left: 5px; // Space between links
+
+                // Change link color and add a slight zoom effect on hover
+                &:hover {
+                    background-color: #b30707; // Change background color on hover
+                    color: #fff; // Change text color on hover
+                    transform: scale(1.05); // Slight zoom effect on hover
+                }
+            }
+        }
+
+        // Style the search container
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-right: auto; // Pushes the search container to the right
+
+            #search-input {
+                width: 200px; // Adjust the width as needed
+                padding: 5px;
+                margin-right: 10px;
+            }
+
+            #search-button {
+                background: #b30707;
+                color: #fff;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: background-color 0.2s;
+
+                &:hover {
+                    background: #fff;
+                    color: #b30707;
+                }
+            }
+        }
+    }
+}
+
+// Footer styles
+footer {
+    background: #0469bb;
+    padding: 1em 0.5em;
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+
+    // Target the <ul> element within the footer
+    ul {
+        list-style: none; // Remove default list bullets
+        padding: 0; // Remove default padding
+
+        // Target the <li> elements within the footer
+        li {
+            margin-bottom: 10px; // Add space between list items
+
+            // Target the <a> elements within the footer
+            a {
+                text-decoration: none; // Remove underlines from links
+                color: #414241; // Set text color for links
+                transition: color 0.3s; // Add a smooth color transition on hover
+
+                // Change link color on hover
+                &:hover {
+                    color: #FFD700; // Change to a different color on hover (e.g., gold)
+                }
+            }
+        }
+    }
+}
