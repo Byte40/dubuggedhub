@@ -47,4 +47,42 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const navList = document.getElementById("nav-list");
+    const leftButton = document.querySelector(".left");
+    const rightButton = document.querySelector(".right");
+
+    // Check if navigation list overflows
+    function checkOverflow() {
+        const isOverflowing = navList.scrollWidth > navList.clientWidth;
+        leftButton.classList.toggle("hidden", !isOverflowing);
+        rightButton.classList.toggle("hidden", !isOverflowing);
+    }
+
+    // Scroll navigation to the left
+    function scrollLeft() {
+        navList.scrollBy({
+            left: -200, // Adjust the scroll distance as needed
+            behavior: "smooth",
+        });
+    }
+
+    // Scroll navigation to the right
+    function scrollRight() {
+        navList.scrollBy({
+            left: 200, // Adjust the scroll distance as needed
+            behavior: "smooth",
+        });
+    }
+
+    // Attach click event listeners to scroll buttons
+    leftButton.addEventListener("click", scrollLeft);
+    rightButton.addEventListener("click", scrollRight);
+
+    // Check overflow initially
+    checkOverflow();
+
+    // Check overflow when the window is resized
+    window.addEventListener("resize", checkOverflow);
+});
 

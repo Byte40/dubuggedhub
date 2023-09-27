@@ -1,3 +1,5 @@
+/* Your existing CSS rules go here */
+
 /* Reset some default styles for the body and header */
 body, h1, h2, p {
     margin: 0;
@@ -9,10 +11,11 @@ body, h1, h2, p {
 header {
     background-image: url(images/div1.jpg); /* Background image for div1 */
     background-size: auto;
-    color: #fff; /* Text color for the header */
     padding: 10px 20px;
     display: flex; /* Make header a flex container */
     justify-content: space-between; /* Space between div1 and div2 */
+    height: 70px;
+    align-items: center;
 }
 
 /* Container for div1 and div2 */
@@ -25,20 +28,11 @@ header {
     font-weight: 400px;
 }
 
-/* Container for div1 */
-.header-div1 {
-    display: flex;
-    align-items: center;
-    font-size: 30px; /* Reduce the font size for better fit */
-}
-
 .header-div2 {
     font-size: 30px;
-
 }
 
-
-.header-container ul li a {
+.header-div2-container ul li a {
     margin-right: 20px;
     text-decoration: none;
     color: #fff;
@@ -47,6 +41,11 @@ header {
     /* Add hover effect to magnify links */
     transition: transform 0.2s;
 }
+
+.header-div2-container a:hover {
+    color: #b30707;
+}
+
 /* Style for the logo */
 .logo img {
     width: 100px; /* Set your logo's width */
@@ -69,7 +68,7 @@ nav ul {
 
 main {
     background: #212529;
-    color:#ffffff;
+    color: #ffffff;
 }
 
 main .navigation-bar {
@@ -79,7 +78,7 @@ main .navigation-bar {
     display: flexbox;
     display: flex;
     overflow: hidden;
-    align-items: center; 
+    align-items: center;
 }
 
 .links-container {
@@ -153,14 +152,13 @@ main .navigation-bar {
     color: #b30707;
 }
 
-
-footer{
-    background:#0469bb ;
-    padding : 1em .5em;
-    text-align:center;
-    font-size:.9rem;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-style:italic;
+footer {
+    background: #0469bb;
+    padding: 1em .5em;
+    text-align: center;
+    font-size: .9rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
 }
 
 /* Target the <ul> element within the footer */
@@ -241,8 +239,6 @@ footer a:hover {
     transform: translateX(-30%) translateY(-100%); /* Move the menu above the button */
 }
 
-
-
 .theme-menu li {
     margin-right: 10px;
 }
@@ -255,10 +251,6 @@ footer a:hover {
     transition: background-color 0.3s;
 }
 
-.theme-menu a:hover {
-    background-color: #0056b3;
-}
-
 /* Dark theme styles */
 .dark-theme {
     background-color: #111;
@@ -266,5 +258,16 @@ footer a:hover {
     /* Add other dark theme styles here */
 }
 
-  
-  
+/* Navigation items (list items) */
+.nav-item {
+    margin-right: 20px; /* Adjust the spacing between links */
+}
+
+/* Navigation scroll buttons */
+.nav-scroll {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    cursor: pointer;
+}
