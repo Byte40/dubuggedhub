@@ -2,7 +2,7 @@
 body, h1, h2, p {
     margin: 0;
     padding: 0;
-    background-color: #212529;
+    background-color: auto;
 }
 
 /* Header styles */
@@ -186,4 +186,85 @@ footer a:hover {
     color: #FFD700; /* Change to a different color on hover (e.g., gold) */
 }
 
+/* Styles for the theme switcher */
+.theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000; /* Ensure it's above other content */
+}
 
+.theme-toggle-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    width: 50px; /* Adjust the button size as needed */
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+/* Add a class to control the visibility of the theme menu */
+.theme-menu-hidden {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s, opacity 0.3s, pointer-events 0s 0.3s;
+}
+
+/* Position the theme menu above the theme toggle button */
+.theme-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: 20px; /* Adjust the distance from the button as needed */
+    left: 0;
+    background-color: #007bff; /* Set the background color for the menu */
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateX(-50%); /* Center the menu horizontally */
+    opacity: 0; /* Initially, make the menu invisible */
+    pointer-events: none; /* Initially, make the menu non-clickable */
+    transition: opacity 0.3s, pointer-events 0s 0.3s;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.theme-menu.visible {
+    opacity: 1; /* Make the menu visible when it should appear */
+    pointer-events: auto; /* Make the menu clickable when it should appear */
+    transform: translateX(-30%) translateY(-100%); /* Move the menu above the button */
+}
+
+
+
+.theme-menu li {
+    margin-right: 10px;
+}
+
+.theme-menu a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.theme-menu a:hover {
+    background-color: #0056b3;
+}
+
+/* Dark theme styles */
+.dark-theme {
+    background-color: #111;
+    color: #fff;
+    /* Add other dark theme styles here */
+}
+
+  
+  
