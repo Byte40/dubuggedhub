@@ -1,79 +1,50 @@
-import { createRoot } from 'react-dom/client';
-
-// Clear the existing HTML content
-document.body.innerHTML = '<div id="app"></div>';
-
-// Render your React component instead
-const root = createRoot(document.getElementById('app'));
-root.render(<h1>Hello, world</h1>);
-
-
-
-// Function to handle scrolling
-function handleScrolling() {
-    const prevButton = document.querySelector(".prev-button"); // Get prev button
-    const nextButton = document.querySelector(".next-button"); // Get next button
-    const nav = document.querySelector(".navigation-bar nav"); // Get nav element
-    const ul = document.querySelector(".navigation-bar ul"); // Get ul element
-
-    let scrollPosition = 0; // Initialize scroll position
-
-    // Function to scroll to the left
-    prevButton.addEventListener("click", function () {
-        scrollPosition -= 200; // Adjust scrolling distance
-        if (scrollPosition < 0) {
-            scrollPosition = 0; // Set minimum scroll position
-        }
-        nav.scrollTo({ // Scroll to the left
-            left: scrollPosition,
-            behavior: "smooth",
-        });
-    });
-
-    // Function to scroll to the right
-    nextButton.addEventListener("click", function () {
-        scrollPosition += 200; // Adjust scrolling distance
-        if (scrollPosition > ul.offsetWidth - nav.offsetWidth) {
-            scrollPosition = ul.offsetWidth - nav.offsetWidth; // Set maximum scroll position
-        }
-        nav.scrollTo({ // Scroll to the right
-            left: scrollPosition,
-            behavior: "smooth",
-        });
-    });
-}
-
-// Call the function
-handleScrolling();
-
-
 document.addEventListener("DOMContentLoaded", function () {
-    // Get references to the search input and button
-    const searchInput = document.getElementById("search-input");
-    const searchButton = document.getElementById("search-button");
+    const body = document.body;
+    const themeToggleButton = document.getElementById("theme-toggle-button");
+    const themeMenu = document.getElementById("theme-menu");
 
-    // Function to perform the search
-    function performSearch() {
-        const query = searchInput.value.trim(); // Get the trimmed query
+    // Check the user's preference for theme (light or dark) from localStorage
+    const userThemePreference = localStorage.getItem("theme");
 
-        // Perform your search logic here
-        // You can redirect to a search results page or display results on the same page
-
-        // For demonstration purposes, let's alert the query
-        alert(`Searching for: ${query}`);
+    // Apply the user's theme preference or default to auto
+    if (userThemePreference === "dark") {
+        body.classList.add("dark-theme");
+    } else if (userThemePreference === "light") {
+        body.classList.remove("dark-theme");
+    } else {
+        // Auto theme based on system preference
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            body.classList.add("dark-theme");
+        }
     }
 
-    // Attach the search function to the button click event
-    searchButton.addEventListener("click", performSearch);
+    // Function to toggle the theme menu
+    function toggleThemeMenu() {
+        // Toggle the visibility class
+        themeMenu.classList.toggle("visible");
+    }
 
-    // Attach the search function to the Enter key press in the input field
-    searchInput.addEventListener("keyup", function (event) {
-        if (event.key === "Enter") {
-            performSearch();
+    // Event listener for theme toggle button
+    themeToggleButton.addEventListener("click", toggleThemeMenu);
+
+    // Function to toggle between dark and light themes
+    function toggleTheme(event) {
+        if (event.target.id === "dark-theme") {
+            body.classList.add("dark-theme");
+            localStorage.setItem("theme", "dark");
+        } else if (event.target.id === "light-theme") {
+            body.classList.remove("dark-theme");
+            localStorage.setItem("theme", "light");
         }
+        // Close the theme menu
+        toggleThemeMenu();
+    }
+
+    // Event listeners for theme menu items
+    const themeMenuItems = document.querySelectorAll(".theme-menu a");
+    themeMenuItems.forEach((item) => {
+        item.addEventListener("click", toggleTheme);
     });
 });
-
-
 
 
