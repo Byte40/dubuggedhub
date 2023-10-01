@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -76,10 +77,15 @@ WSGI_APPLICATION = 'debugged_hub.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'debugged_hub',
+        'USER': 'postgres',
+        'PASSWORD': 'Alexleevex#465654',
+        'HOST': 'localhost',  # Set to your PostgreSQL host, typically 'localhost' for local development
+        'PORT': '5433',  # Leave empty to use the default PostgreSQL port (5432)
     }
 }
+
 
 
 # Password validation

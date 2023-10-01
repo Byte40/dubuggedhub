@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import BlogListAPIView, BlogDetailAPIView, BlogByTopicAPIView, BlogByWriterAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blogs/', BlogListAPIView.as_view(), name='blog-list'),
+    path('blogs/<int:id>/', BlogDetailAPIView.as_view(), name='blog-detail'),
+    path('blogs/topic/<int:topic_id>/', BlogByTopicAPIView.as_view(), name='blog-by-topic'),
+    path('blogs/writer/<int:writer_id>/', BlogByWriterAPIView.as_view(), name='blog-by-writer'),
 ]
