@@ -16,12 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import BlogListAPIView, BlogDetailAPIView, BlogByTopicAPIView, BlogByWriterAPIView
+from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blogs/', BlogListAPIView.as_view(), name='blog-list'),
-    path('blogs/<int:id>/', BlogDetailAPIView.as_view(), name='blog-detail'),
-    path('blogs/topic/<int:topic_id>/', BlogByTopicAPIView.as_view(), name='blog-by-topic'),
-    path('blogs/writer/<int:writer_id>/', BlogByWriterAPIView.as_view(), name='blog-by-writer'),
+    path('blogs/', views.BlogListAPIView.as_view(), name='home'),
+    path('blogs/<int:id>/', views.BlogDetailAPIView.as_view(), name='blog-detail'),
+    path('blogs/topic/<int:topic_id>/', views.BlogByTopicAPIView.as_view(), name='blog-by-topic'),
+    path('blogs/writer/<int:writer_id>/', views.BlogByWriterAPIView.as_view(), name='blog-by-writer'),
+    path('api/blogs/', views.CreateBlogAPIView.as_view(), name='create-blog'),
+    path('api/users/register/', views.UserRegistrationAPIView.as_view(), name='create-user'),
+    path('api/users/login/', views.UserLoginAPIView.as_view(), name='login-user' ),
+    path('api/blogs/create/', views.CreateBlogAPIView.as_view(), name='create-blog'),
 ]
+

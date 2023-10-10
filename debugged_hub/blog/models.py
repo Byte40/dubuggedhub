@@ -1,14 +1,27 @@
 from django.db import models
+from django.conf import settings
+from django.db.models.signals import post_save
 from django.contrib.auth.models import User
-# Create your models here.
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
+
+"""Create an auth token for a newly created user."""
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    # Check if the user is newly created
+    if created:
+        # Create and save new token
+        Token.objects.create(user=instance)
 
 # UserProfile model
 class UserProfile(models.Model):
     # OneToOneField: One user has one profile
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, null=False, blank=True)
+    username = models.CharField(max_length=255, null=False, blank=True)
     email = models.EmailField(null=False, unique=True, blank=True)
     password = models.CharField(max_length=255, null=False, blank=True)
+    first_name = models.CharField(max_length=255, null=False, blank=True)
+    last_name = models.CharField(max_length=255, null=False, blank=True)
     
     # BooleanField: Is the user a writer?
     is_writer = models.BooleanField(default=False)
